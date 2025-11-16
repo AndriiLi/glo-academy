@@ -1,0 +1,1 @@
+export const DB_URL='https://lago-glo-default-rtdb.firebaseio.com/goods.json';
