@@ -1,5 +1,11 @@
 import cart from'./module/cart';
-import second from './module/second';
+import catalog from './module/catalog';
+import load  from './module/load'
+import search from './module/search';
+import searchOptions from './module/searchOptions'
 
 cart();
-second();
+load();
+search();
+catalog();
+searchOptions();
