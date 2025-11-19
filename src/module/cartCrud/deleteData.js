@@ -1,6 +1,6 @@
 import { DB_URL } from "../env";
 
-const deleteData = async() => {
+const deleteData = () => {
     return fetch(DB_URL, {method: 'DELETE'}).then((res) => resp.json());
 }
 

@@ -11,18 +11,27 @@ export const categoryFilter =  (goods, categoryText) => {
     });
 };
 
-export function filterGoods(data, filters) {
-    const { minPrice, maxPrice, discountOnly } = filters;
-    const min = minPrice !== '' && !isNaN(minPrice) ? Number(minPrice) : null;
-    const max = maxPrice !== '' && !isNaN(maxPrice) ? Number(maxPrice) : null;
 
-    return data.filter(item => {
-        if (min !== null && max !== null && min > max) return false;
-        if (min !== null && item.price < min) return false;
-        if (max !== null && item.price > max) return false;
-
-        if (discountOnly && !item.sale) return false;
-
-        return true;
+export const priceFilter =  (goods, min, max) => {
+    return goods.filter(item => {
+        if(min ==='' && max ==='') {
+            return  item;
+        }else if(min !== '' &&  max !== ''){
+            return  item.price >= +min && item.price <= +max;
+        }else if(min !== '' &&  max == ''){
+            return  item.price >= +min;
+        }else if(min === '' &&  max !== ''){
+            return  item.price <= +max;
+        }
     });
-}
+};
+
+export const hotSaleFilter =  (goods, value) => {
+    return goods.filter(item => {
+        if(value) {
+            return item.sale === true;
+        }else {
+            return item;
+        }
+    });
+};

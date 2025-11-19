@@ -1,7 +1,5 @@
-import { DB_URL } from "../env";
-
-const postData = async (data) => {
-    return fetch(DB_URL, {
+const postData = (data) => {
+    return fetch('http://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
